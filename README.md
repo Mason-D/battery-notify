@@ -12,4 +12,5 @@
    - [ ] Build battery script
    - [ ] Build Systemd Service file
    - [ ] Build setup script
+   - [ ] Build custom scripts for each event
 
