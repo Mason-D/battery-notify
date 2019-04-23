@@ -9,7 +9,7 @@
    This will create a symlink between the files within this repo and the necessary system files.
 
 ## To-do
-   - [  ] Build battery script
-   - [  ] Build Systemd Service file
-   - [  ] Build setup script
+   - [ ] Build battery script
+   - [ ] Build Systemd Service file
+   - [ ] Build setup script
 
