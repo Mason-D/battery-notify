@@ -20,12 +20,32 @@ BAT_LEVEL_FILE='/sys/class/power_supply/BAT?/capacity'
 # The previous status to detect change
 LAST_STATUS=''
 
+# Status for Unplugged
+DISCHARGING='Discharging'
+
+# Status for Plugged
+CHARGING='Charging'
+
+# Status for various notifications
+# 0 = Not yet sent | 1 = Already sent
+# 0 - 5% (Discharging)
+# 1 - 10% (Discharging)
+# 2 - 15% (Discharging)
+# 3 - 20% (Discharging)
+# 4 - 30% (Discharging)
+# 5 - 50% (Discharging)
+# 6 - 100% (Charging)
+NOTIFACATIONS=(0 0 0 0 0 0 0)
+
 # Send a user notification
 # notify <length - seconds> <data>
 function notify () {
     EXPIRE=`expr $1 \* 1000`
     DATA="$2"
-    notify-send --urgency=normal --expire-time="$EXPIRE" --app-name=battery-notify "$DATA"
+    notify-send --urgency=normal \
+                --expire-time="$EXPIRE" \
+                --app-name=battery-notify \
+                "$DATA"
 }
 
 # This function is called anytime the battery status changes
@@ -46,6 +66,10 @@ while true; do
     if [ "$STATUS" != "$LAST_STATUS" ]; then
         status_change "$STATUS"
         LAST_STATUS="$STATUS"
+    fi
+
+    if [ "$STATUS" = "$DISCHARGING" ]; then
+    elif [ "$STATUS" = "$CHARGING" ]; then
     fi
 
     # Sleep for $TIMEOUT to save resources
