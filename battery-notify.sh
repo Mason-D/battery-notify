@@ -10,7 +10,6 @@
 
 # How long to sleep between each iteration
 TIMEOUT=1
-NOTIFY_TIMEOUT=`expr 1000 \* $TIMEOUT + 1`
 
 # Location of status file
 STATUS_FILE='/sys/class/power_supply/BAT?/status'
@@ -21,10 +20,20 @@ BAT_LEVEL_FILE='/sys/class/power_supply/BAT?/capacity'
 # The previous status to detect change
 LAST_STATUS=''
 
+# Send a user notification
+# notify <length - seconds> <data>
+function notify () {
+    EXPIRE=`expr $1 \* 1000`
+    DATA="$2"
+    notify-send --urgency=normal --expire-time="$EXPIRE" --app-name=battery-notify "$DATA"
+}
+
 # This function is called anytime the battery status changes
+# status_change <status>
 function status_change () {
     STATUS="$1"
     echo "$STATUS"
+    notify 3 "Battery: $STATUS"
 }
 
 # Main Loop
