@@ -11,8 +11,10 @@
 ## To-do
    - [ ] Build battery script
      - [x] Send notifications on status change (Charging/Not)
-     - [ ] Send notifications for low battery (5% 10% 15% 20% 30% 50%)
-     - [ ] Send notifications for full battery while charging
+     - [x] Send notifications for low battery (5% 10% 15% 20% 30% 50%)
+     - [x] Send notifications for full battery while charging
+     - [ ] Fully test script
+     - [ ] Beautify notifications
    - [x] Build Systemd Service file
    - [ ] Build setup script
    - [ ] Add possibility custom scripts for each event
