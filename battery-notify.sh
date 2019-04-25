@@ -56,13 +56,12 @@ function notify () {
 # status_change <status>
 function status_change () {
     STATUS="$1"
-    echo Status changed from $LAST_STATUS to "$STATUS"
+    echo "$LAST_STATUS -> $STATUS @ ${BAT_LEVEL}% | Notifying"
     notify "$PREFIX $STATUS" 3
 }
 
 # Main Loop
 while true; do
-    echo Checking Status
     # Retreive Battery Status
     STATUS=`cat $STATUS_FILE`
     BAT_LEVEL=`cat $BAT_LEVEL_FILE`
@@ -77,46 +76,34 @@ while true; do
     if [[ "$STATUS" = "$DISCHARGING" ]]; then
         # Send low battery notifications
         if   ${NOTIFICATIONS[5]} && [[ $BAT_LEVEL -le 50 ]]; then
+            echo "$PREFIX $STATUS - ${BAT_LEVEL}% | Notifying"
             NOTIFICATIONS[5]=false
             notify "$PREFIX ${BAT_LEVEL}% Charge remaining"
-            echo ${NOTIFICATIONS[@]}
-            echo ${BAT_LEVEL}
-            echo
 
         elif ${NOTIFICATIONS[4]} && [[ $BAT_LEVEL -le 30 ]]; then
+            echo "$PREFIX $STATUS - ${BAT_LEVEL}% | Notifying"
             NOTIFICATIONS[4]=false
             notify "$PREFIX ${BAT_LEVEL}% Charge remaining"
-            echo ${NOTIFICATIONS[@]}
-            echo ${BAT_LEVEL}
-            echo
 
         elif ${NOTIFICATIONS[3]} && [[ $BAT_LEVEL -le 20 ]]; then
+            echo "$PREFIX $STATUS - ${BAT_LEVEL}% | Notifying"
             NOTIFICATIONS[3]=false
             notify "$PREFIX ${BAT_LEVEL}% Charge remaining"
-            echo ${NOTIFICATIONS[@]}
-            echo ${BAT_LEVEL}
-            echo
 
         elif ${NOTIFICATIONS[2]} && [[ $BAT_LEVEL -le 15 ]]; then
+            echo "$PREFIX $STATUS - ${BAT_LEVEL}% | Notifying"
             NOTIFICATIONS[2]=false
             notify "$PREFIX ${BAT_LEVEL}% Charge remaining"
-            echo ${NOTIFICATIONS[@]}
-            echo ${BAT_LEVEL}
-            echo
 
         elif ${NOTIFICATIONS[1]} && [[ $BAT_LEVEL -le 10 ]]; then
+            echo "$PREFIX $STATUS - ${BAT_LEVEL}% | Notifying"
             NOTIFICATIONS[1]=false
             notify "$PREFIX ${BAT_LEVEL}% Charge remaining"
-            echo ${NOTIFICATIONS[@]}
-            echo ${BAT_LEVEL}
-            echo
 
         elif ${NOTIFICATIONS[0]} && [[ $BAT_LEVEL -le 5 ]]; then
+            echo "$PREFIX $STATUS - ${BAT_LEVEL}% | Notifying"
             NOTIFICATIONS[0]=false
             notify "$PREFIX ${BAT_LEVEL}% Charge remaining"
-            echo ${NOTIFICATIONS[@]}
-            echo ${BAT_LEVEL}
-            echo
         fi
 
         # Reset full battery notification
@@ -153,11 +140,9 @@ while true; do
 
         # Send full battery notification
         if ${NOTIFICATIONS[6]} && [[ $BAT_LEVEL -ge 100 ]]; then
+            echo "$PREFIX $STATUS - ${BAT_LEVEL}% | Notifying"
             NOTIFICATIONS[6]=false
             notify "$PREFIX Full Charge"
-            echo ${NOTIFICATIONS[@]}
-            echo ${BAT_LEVEL}
-            echo
         fi
     fi
 
