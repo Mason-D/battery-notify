@@ -17,5 +17,8 @@
      - [ ] Beautify notifications
    - [x] Build Systemd Service file
    - [ ] Build setup script
+     - [ ] Symlink service file
+     - [ ] Symlink script
+     - [ ] Create directories if they don't exist
    - [ ] Add possibility custom scripts for each event
 
