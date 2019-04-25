@@ -1,0 +1,9 @@
+[Unit]
+Description=Battery Notification Service
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/battery-notify.sh
+
+[Install]
+WantedBy=default.target
