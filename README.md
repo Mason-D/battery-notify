@@ -15,7 +15,7 @@
    ```
    This will install the service file and script file.
 
-   If systemctl cannot see battery-notify.service, try reloading the systemctl daemon.
+   If systemctl cannot see *battery-notify.service*, try reloading the *systemctl daemon*.
    ```bash
    $ systemctl --user daemon-reload
    ```
