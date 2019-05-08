@@ -6,16 +6,16 @@
    To install, just run *make install*.
    ```bash
    $ make install
-   $
+
    $ # If you want this to run on startup, enable the service
    $ make enable
-   $
+
    $ # If you want to run the script without restarting
    $ make start
    ```
    This will install the service file and script file.
 
-   If systemctl cannot see battery-notify.service, try reloading systemctl
+   If systemctl cannot see battery-notify.service, try reloading the systemctl daemon.
    ```bash
    $ systemctl --user daemon-reload
    ```
