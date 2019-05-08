@@ -9,7 +9,7 @@
 #                         `-'                       `-'
 
 # How long to sleep between each iteration
-TIMEOUT=10
+TIMEOUT=30
 
 # Location of status file
 STATUS_FILE='/sys/class/power_supply/BAT?/status'
