@@ -56,8 +56,7 @@ function notify () {
 # status_change <status>
 function status_change () {
     STATUS="$1"
-    echo "$LAST_STATUS -> $STATUS @ ${BAT_LEVEL}% | Notifying"
-    notify "$PREFIX $STATUS" 3
+    echo "$LAST_STATUS -> $STATUS @ ${BAT_LEVEL}%"
 }
 
 # Main Loop

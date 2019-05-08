@@ -10,7 +10,6 @@
 
 ## To-do
    - [ ] Build battery script
-     - [x] Send notifications on status change (Charging/Not)
      - [x] Send notifications for low battery (5% 10% 15% 20% 30% 50%)
      - [x] Send notifications for full battery while charging
      - [ ] Fully test script
