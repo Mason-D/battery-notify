@@ -2,11 +2,26 @@
    *A simple script and service for notifying the user about various battery level events*
 
 ## Setup
-   To setup, just run the setup script:
+   ### Install
+   To install, just run *make install*.
    ```bash
-   $ ./setup.sh
+   $ make install
+   $ 
+   $ # If you want this to run on startup, enable the service
+   $ systemctl --user enable battery-notify.service
    ```
-   This will create a symlink between the files within this repo and the necessary system files.
+   This will install the service file and script file. 
+   
+   If systemctl cannot see battery-notify.service, try reloading systemctl
+   ```bash
+   $ systemctl --user daemon-reload
+   ```
+   
+   ### Uninstall
+   To uninstall, just run *make uninstall*.
+   ```bash
+   $ make uninstall
+   ```
 
 ## To-do
    - [ ] Build battery script
@@ -15,9 +30,12 @@
      - [ ] Fully test script
      - [ ] Beautify notifications
    - [x] Build Systemd Service file
-   - [ ] Build setup script
-     - [ ] Symlink service file
-     - [ ] Symlink script
-     - [ ] Create directories if they don't exist
+   - [x] Build Makefile
+     - [x] Install
+       - [x] Copy service file
+       - [x] Copy script
+       - [x] Create directories if they don't exist
+     - [x] Uninstall
+       - [x] Remove installed files
    - [ ] Add possibility custom scripts for each event
 
