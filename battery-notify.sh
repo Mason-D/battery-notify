@@ -141,7 +141,7 @@ while true; do
         if ${NOTIFICATIONS[6]} && [[ $BAT_LEVEL -ge 100 ]]; then
             echo "$PREFIX $STATUS - ${BAT_LEVEL}% | Notifying"
             NOTIFICATIONS[6]=false
-            notify "$PREFIX Full Charge"
+            notify "$PREFIX Full Charge" 0
         fi
     fi
 
