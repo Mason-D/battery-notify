@@ -7,10 +7,10 @@
    ```bash
    $ make install
 
-   $ # If you want this to run on startup, enable the service
+   # If you want this to run on startup, enable the service
    $ make enable
 
-   $ # If you want to run the script without restarting
+   # If you want to run the script without restarting
    $ make start
    ```
    This will install the service file and script file.
