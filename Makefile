@@ -21,3 +21,9 @@ enable:
 
 disable:
 	systemctl --user disable battery-notify.service
+
+start:
+	systemctl --user start battery-notify.service
+
+stop:
+	systemctl --user stop battery-notify.service
