@@ -15,3 +15,9 @@ install:
 uninstall:
 	rm $(SERVDIR)/$(SERVFILE)
 	rm $(SCRIPTDIR)/$(SCRIPTFILE)
+
+enable:
+	systemctl --user enable battery-notify.service
+
+disable:
+	systemctl --user disable battery-notify.service

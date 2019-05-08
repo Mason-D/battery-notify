@@ -8,7 +8,7 @@
    $ make install
    $ 
    $ # If you want this to run on startup, enable the service
-   $ systemctl --user enable battery-notify.service
+   $ make enable
    ```
    This will install the service file and script file. 
    
@@ -21,6 +21,11 @@
    To uninstall, just run *make uninstall*.
    ```bash
    $ make uninstall
+   ```
+   
+   If you just want to disable this program on startup, run *make disable*.
+   ```bash
+   $ make disable
    ```
 
 ## To-do
